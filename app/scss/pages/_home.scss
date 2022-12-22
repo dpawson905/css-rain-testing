@@ -1,0 +1,66 @@
+.hero {
+  grid-column: container-start / container-end;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/hero.jpg');
+  background-position: bottom center;
+  background-size: cover;
+  animation: color-change 2s linear infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)),url(../img/rain.png);
+    animation: rain 0.2s linear 0s infinite normal;
+    filter:opacity(1);
+    will-change: animation;
+    z-index: 2 !important;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    
+
+    &--heading {
+      color: #fafafa;
+      font-size: font-size(font-size-large);
+      text-shadow: 3px 1.5px 2px rgba($color: #000, $alpha: .2);
+    }
+
+    &--para {
+      color: #fafafa;
+      font-size: font-size(font-size-regular);
+      text-shadow: 3px 1.5px 2px rgba($color: #000, $alpha: .2);
+    }
+  }
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.about {
+  grid-column: center-start / center-end;
+
+  &__heading {
+    font-size: font-size(font-size-regular);
+  }
+}
